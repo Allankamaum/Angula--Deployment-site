@@ -1,0 +1,14 @@
+<h1>My Test</h1>
+<hr>
+
+<ul>
+  <div *ngFor='let test of tests;let i = index'>
+
+    <li appStrikethrough>{{test.name}} <strong>due on the</strong> {{test.completeDate|date}}</li>
+    <button (click)='toogleDetails(i)'>Toogle Details</button>
+    <app-test-details appStrikethrough *ngIf="test.showDescription" [test]='test' (isComplete)= 'completeTest($event,i)' ></app-test-details>
+    <!-- <br> -->
+    <hr>
+
+  </div>
+</ul>
